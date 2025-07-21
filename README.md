@@ -1,5 +1,3 @@
----
-
 ````markdown
 <h1 align="center">🚀 Tiny-LLM: Shakespearean Text Generator</h1>
 
