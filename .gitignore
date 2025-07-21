@@ -1,0 +1,44 @@
+# 🔧 Python cache & build
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# 🧠 Environment and virtualenvs
+.env
+.venv/
+env/
+venv/
+
+# ⚙️ VSCode and OS files
+.vscode/
+.DS_Store
+
+# 📦 Model weights (ignore only temporary checkpoints, keep final model)
+models/checkpoint_*.pt
+
+# 🧪 Logs and temp files
+*.log
+*.tmp
+
+# 🚫 W&B local logs (remote logs remain)
+wandb/
+
+# 💾 Jupyter notebook autosaves
+*.ipynb_checkpoints/
+
+# 📊 Data (allow small cleaned ones, block raw/external)
+data/raw/
+data/*.zip
+data/*.tar.gz
+
+# 📁 Results (generated images, etc.)
+results/*.png
+results/*.gif
+results/*.mp4
+
+# ✅ Do NOT ignore:
+# - models/transformer_final.pt (keep final model)
+# - data/input.txt and input_large.txt (clean data for users)
+# - source/, notebooks/, app.py, README.md etc.

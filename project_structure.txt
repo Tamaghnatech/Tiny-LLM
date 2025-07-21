@@ -1,0 +1,37 @@
+  └── app.py
+config    └── config.yaml
+data    └── input.txt
+data    └── input_large.txt
+data    └── Shakespeare_data.csv
+  └── generate_text.py
+logs    └── session_20250722_041531.txt
+logs    └── session_20250722_042154.txt
+  └── main.py
+models    └── checkpoint_step_100.pt
+models    └── checkpoint_step_50.pt
+models    └── lstm_model.pt
+models    └── transformer_final.pt
+models    └── transformer_model.pt
+notebooks    └── 01_data_preprocessing.ipynb
+notebooks    └── 02_model_architecture.ipynb
+notebooks    └── 03_training_logs.ipynb
+  └── prepare_dataset.py
+  └── project_structure.txt
+  └── README.md
+  └── requirements.txt
+results    └── output.png
+source    └── model_gru.py
+source    └── model_lstm.py
+source    └── model_transformer.py
+source    └── tokenizer_bpe.py
+source    └── utils.py
+source  __pycache__    └── model_gru.cpython-313.pyc
+source  __pycache__    └── model_lstm.cpython-311.pyc
+source  __pycache__    └── model_lstm.cpython-313.pyc
+source  __pycache__    └── model_transformer.cpython-311.pyc
+source  __pycache__    └── model_transformer.cpython-313.pyc
+source  __pycache__    └── utils.cpython-311.pyc
+source  __pycache__    └── utils.cpython-313.pyc
+  └── trainer_gru.py
+  └── trainer_lstm.py
+  └── trainer_transformer.py
