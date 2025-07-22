@@ -1,22 +1,22 @@
 # 🚀 Tiny-LLM: Shakespearean Text Generator
 
-🎭 **Tiny-LLM** is a *local-first* mini Language Model that generates Shakespearean, poetic, and surreal text using a **Transformer**, trained entirely from scratch on the *Complete Works of Shakespeare*.
+🎭 **Tiny-LLM** is a *local-first*, from-scratch **mini language model** trained entirely on the *Complete Works of Shakespeare*. It generates poetic, Shakespearean, and surreal text using a custom-built **Transformer architecture**.
 
-💻 Supports both **Gradio UI** and **Command Line Interface** (CLI). Write prompts, tune temperature, toggle light/dark mode, and download your AI-written verses.
+💡 This repo demonstrates the full **Machine Learning to MLOps** lifecycle: data prep, modeling (LSTM, GRU, Transformer), training, experiment tracking, CLI + Gradio UI, and Hugging Face Spaces deployment.
 
-## 🌐 Try it Live
+🌐 **[👉 Try it LIVE on Hugging Face Spaces](https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM)**
 
-[![Hugging Face Spaces](https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM)
+📊 **[📈 See the W&B Dashboard](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm?nw=nwusernagtamaghna)** – Training logs, loss curves, model configs, gradient flow & more.
 
 ---
 
 ## 📦 Download the Trained Model (for Local Usage)
 
-The trained `transformer_final.pt` model is not included in the repo due to GitHub size limits.
+Due to GitHub's size restrictions, the trained Transformer model is hosted externally.
 
-📥 **[Download the model from Google Drive](https://drive.google.com/file/d/1HanIwaT0_sILx3-jDXfmmgYqUfHiI_S-/view?usp=sharing)**
+📥 **[Download `transformer_final.pt` from Google Drive](https://drive.google.com/file/d/1HanIwaT0_sILx3-jDXfmmgYqUfHiI_S-/view?usp=sharing)**
 
-Save it as:
+Save it to:
 
 ```bash
 Tiny-LLM/
@@ -26,47 +26,47 @@ Tiny-LLM/
 
 ---
 
-## 🧠 Tiny-LLM: From Prompt to Poetry
+## 🧠 End-to-End Pipeline Overview
 
-> Built from scratch using PyTorch and love ❤️  
-> No Hugging Face pretrained models. No shortcuts. Just math, code, and Shakespeare.
+> A full-stack, production-grade journey from dataset to deployment.
+
+### 📊 1. Data Collection & Preparation
+- Source: Kaggle Shakespeare Corpus
+- Cleaned into character-level dataset → `input.txt` and `input_large.txt`
+- Script: [`prepare_dataset.py`](prepare_dataset.py)
+
+### 🧠 2. Model Development
+- LSTM / GRU (baselines)
+- Transformer (final)
+  - 8 Layers, 8 Heads, 512 Embedding Dim, Block Size: 256
+- Location: [`source/`](source/) directory
+
+### 🏋️‍♂️ 3. Training
+- Scripts: `trainer_lstm.py`, `trainer_gru.py`, `trainer_transformer.py`
+- Tracked using Weights & Biases (`wandb`)
+- Optimizer: `AdamW`
+- Loss: CrossEntropy
+- Checkpoints: `.pt` files saved to `models/`
+
+### 📈 4. Experiment Tracking (MLOps)
+- Dashboard:  
+  🔗 [W&B Project](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm?nw=nwusernagtamaghna)
+
+### 🧪 5. Inference & Serving
+
+#### ➤ CLI Interface
+- Script: `generate_text.py`
+
+#### ➤ Gradio Web App
+- Script: `app.py`
+
+### 🚀 6. Deployment
+- ✅ Gradio Localhost
+- ✅ Hugging Face Spaces
 
 ---
 
-## 📖 Project Evolution
-
-### 1. 🧪 Started Small
-- Dataset: `input.txt` — a small set of Shakespearean lines
-- Trained LSTM and GRU models to generate characters
-
-### 2. 📚 Dataset Expansion
-- Downloaded the full *Shakespeare Plays Corpus* from Kaggle
-- Cleaned and stored as `input_large.txt`
-
-### 3. 🧱 Built Transformer from Scratch
-- 8 layers, 8 heads, 512 embedding dim
-- Block size: 256
-- Trained on GPU (100 steps)
-
-### 4. 📟 Created CLI Tool
-- `generate_text.py` for terminal-based text generation
-
-### 5. 🎨 Designed Gradio Web App
-- Real-time generation with sliders for Temperature, Top-k, and Length
-- Light/Dark mode, session logs, model insights
-
----
-
-## 📊 W&B Dashboard
-
-All training experiments were tracked using Weights & Biases:
-
-- 🔗 [Project Dashboard](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm)
-- 📈 [Transformer Run](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm/runs/9000xl8r)
-
----
-
-## 🗂 Project Structure
+## 📂 Project Structure
 
 ```bash
 Tiny-LLM/
@@ -98,14 +98,14 @@ Tiny-LLM/
 
 ---
 
-## ⚙️ Hyperparameters
+## ⚙️ Model Configuration
 
-| Name           | Value       |
+| Hyperparameter | Value       |
 |----------------|-------------|
 | Model Type     | Transformer |
 | Layers         | 8           |
 | Heads          | 8           |
-| Embedding Size | 512         |
+| Embedding Dim  | 512         |
 | Block Size     | 256         |
 | Tokenizer      | Char-level  |
 | Optimizer      | AdamW       |
@@ -120,30 +120,29 @@ git clone https://github.com/Tamaghnatech/Tiny-LLM.git
 cd Tiny-LLM
 
 python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+source venv/bin/activate   # or venv\Scripts\activate on Windows
 
 pip install -r requirements.txt
 ```
 
-Then, place the model inside `models/` and launch:
+Download the model and run:
 
 ```bash
 python app.py
 ```
 
+Visit [http://localhost:7860](http://localhost:7860)
+
 ---
 
 ## 🔥 Gradio Features
 
-- Prompt input box  
-- Length slider (50–1000)  
-- Temperature control (creativity)  
-- Top-k sampling  
-- Light/Dark toggle  
-- Model explanation  
-- Prompt history  
-- Downloadable output  
-- Timeline + Project overview  
+- Prompt input box
+- Length, Temperature, Top-k sliders
+- Light/Dark mode
+- Output download
+- Prompt history
+- Hugging Face embed support
 
 ---
 
@@ -153,47 +152,38 @@ python app.py
 python generate_text.py
 ```
 
-You’ll be asked for:
-- Prompt
-- Length
-- Temperature
-- Top-k
-
 ---
 
 ## 🛠️ Dev Roadmap
 
-- [x] LSTM & GRU baselines  
-- [x] Train Transformer from scratch  
-- [x] Gradio + CLI interfaces  
-- [x] Weights & Biases logging  
-- [x] Hugging Face Spaces demo  
-- [ ] BPE tokenizer  
-- [ ] Attention visualization  
-- [ ] Language toggle  
-- [ ] Docker + PyPI support  
-- [ ] Long-context training  
+- [x] LSTM / GRU baselines
+- [x] Transformer model
+- [x] Gradio + CLI
+- [x] W&B tracking
+- [x] Hugging Face deployment
+- [ ] Byte Pair Encoding
+- [ ] Multilingual toggle
+- [ ] Attention viz
+- [ ] Docker + PyPI
 
 ---
 
 ## 👨‍💻 Author
 
 **Tamaghna Nag**  
-Founder of NovalQ | ML Engineer | Shakespeare Whisperer
+Founder of NovalQ | ML Engineer | Code Poet
 
-- [Portfolio](https://tamaghnatech.in)  
-- [GitHub](https://github.com/Tamaghnatech)  
-- [W&B Project](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm)  
-
----
-
-## 💬 Final Word
-
-> “A tiny model built on timeless literature.  
-> Proof that even small things, when trained well, can sound divine.”
+- 🌐 [Portfolio](https://tamaghnatech.in)  
+- 🧠 [W&B Logs](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm?nw=nwusernagtamaghna)
 
 ---
 
-## 🪄 Fork It. Prompt It. Publish It.
+## 🪄 Final Word
 
-⭐ Star this repo if you like the work and [play with the app on Hugging Face](https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM)!
+> “A tiny model trained on timeless literature.  
+> Proof that small things, when trained right, can be legendary.”
+
+---
+
+⭐ **Fork. Prompt. Publish.**  
+🔗 [Launch the App on Hugging Face](https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM)
