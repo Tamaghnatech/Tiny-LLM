@@ -10,18 +10,21 @@
 
 ---
 
-🎭 **Tiny-LLM** is a *local-first* mini language model that generates Shakespearean, surreal, or poetic text using a **Transformer**, trained from scratch on the *Complete Works of Shakespeare*.
+🎭 **Tiny-LLM** is a *local-first* mini language model that generates Shakespearean, poetic, and surreal text using a **Transformer**, trained from scratch on the *Complete Works of Shakespeare*.
 
 💻 With **Gradio UI** and **CLI** modes, it's plug-n-play magic — write prompts, tune temperature, toggle light/dark themes, and download your creations in seconds.
 
+🌐 **Try it on Hugging Face Spaces**:  
+🔗 [https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM](https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM)
+
 ---
 
-## 📦 Model Download Required
+## 📦 Model Download Required (for Local Use)
 
-> Due to repo size limits, the trained `transformer_final.pt` model is hosted externally.
+Due to repo size limits, the trained model isn't bundled here.
 
-📥 **[Download here (Google Drive)](https://drive.google.com/file/d/1HanIwaT0_sILx3-jDXfmmgYqUfHiI_S-/view?usp=sharing)**  
-📁 Save it to:
+📥 **[Download transformer_final.pt from Google Drive](https://drive.google.com/file/d/1HanIwaT0_sILx3-jDXfmmgYqUfHiI_S-/view?usp=sharing)**  
+📁 Save it in:
 
 ```bash
 Tiny-LLM/
@@ -29,81 +32,60 @@ Tiny-LLM/
     └── transformer_final.pt
 ````
 
-Then simply run:
-
-```bash
-python app.py
-```
-
-🔥 Boom. It’s alive.
-
 ---
 
 ## 🧠 Tiny-LLM: From Prompt to Poetry
 
-A from-scratch journey into building an end-to-end LLM using PyTorch — no shortcuts, no heavy frameworks, just pure learning and hustle. This is a codebase and a story.
+> Built from scratch using PyTorch and love ❤️
+> No Hugging Face pretrained models. No shortcuts. Just math, code, and Shakespeare.
 
 ---
 
-## 📖 The Journey
+## 📖 Project Evolution
 
 ### 1. 🧪 Started Small
 
-* **Dataset**: `data/input.txt` (few Shakespeare lines)
-* **Models**: Trained basic **LSTM** and **GRU** to generate characters
+* Dataset: `input.txt` — a small set of Shakespearean lines
+* Trained LSTM and GRU models to generate characters
 
-### 2. 📚 Expanded Dataset
+### 2. 📚 Dataset Expansion
 
-* Pulled entire Shakespeare corpus from Kaggle
-* Cleaned to `input_large.txt`
+* Downloaded the full *Shakespeare Plays Corpus* from Kaggle
+* Cleaned and stored as `input_large.txt`
 
-### 3. 🧱 Built Transformer
+### 3. 🧱 Built Transformer from Scratch
 
-* Custom architecture with:
+* 8 layers, 8 heads, 512 embedding dim
+* Block size: 256
+* Trained on GPU (100 steps)
 
-  * 8 layers
-  * 8 heads
-  * 512 embedding dim
-  * Block size 256
+### 4. 📟 Created CLI Tool
 
-### 4. 🧰 Built CLI Generator
+* `generate_text.py` for terminal-based text generation
 
-* `generate_text.py` for prompt-based terminal usage
+### 5. 🎨 Designed Gradio Web App
 
-### 5. 🎨 Deployed Gradio App
-
-* Real-time input/output
-* Sliders: length, temperature, top-k
-* Dark/light mode
-* Download generated text
-* Prompt history + model summary
+* Real-time generation with sliders for Temperature, Top-k, and Length
+* Light/Dark mode, session logs, model insights
 
 ---
 
-## 🧪 Weights & Biases Logs
+## 🧪 W\&B Dashboard
 
-📊 Tracked everything using `wandb`:
+All training experiments were tracked using Weights & Biases:
 
-* 🔗 [W\&B Dashboard](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm)
-* 🔎 Transformer Training: [View run](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm/runs/9000xl8r)
-
-Features:
-
-* Token stats
-* Loss graphs
-* Gradients
-* Model config
+🔗 [View Project Dashboard](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm)
+📈 [Transformer Run](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm/runs/9000xl8r)
 
 ---
 
-## 🗂️ Project Structure
+## 🗂 Project Structure
 
 ```bash
 Tiny-LLM/
-├── app.py                  # Gradio UI interface
-├── generate_text.py        # CLI interface
+├── app.py                  # Gradio interface
+├── generate_text.py        # CLI generator
 ├── trainer_transformer.py  # Transformer training loop
-├── trainer_lstm.py         # LSTM training loop
 ├── prepare_dataset.py      # Dataset cleaner
 │
 ├── data/
@@ -112,127 +94,125 @@ Tiny-LLM/
 │   └── Shakespeare_data.csv
 │
 ├── models/
-│   └── transformer_final.pt ✅
+│   └── transformer_final.pt  ✅
 │
 ├── source/
 │   ├── model_transformer.py
 │   ├── model_lstm.py
 │   ├── model_gru.py
 │   ├── utils.py
-│   └── tokenizer_bpe.py (future-ready)
+│   └── tokenizer_bpe.py (WIP)
 │
-├── logs/
-│   └── session_*.txt
-│
-├── notebooks/
-│   ├── 01_data_preprocessing.ipynb
-│   ├── 02_model_architecture.ipynb
-│   └── 03_training_logs.ipynb
-│
+├── logs/                  # Session outputs
+├── notebooks/             # Jupyter breakdowns
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## 💻 Run Locally
+## ⚙️ Hyperparameters
 
-### Step 1: Clone + Install
+| Name           | Value       |
+| -------------- | ----------- |
+| Model Type     | Transformer |
+| Layers         | 8           |
+| Heads          | 8           |
+| Embedding Size | 512         |
+| Block Size     | 256         |
+| Tokenizer      | Char-level  |
+| Optimizer      | AdamW       |
+| Steps Trained  | 100         |
+
+---
+
+## 💻 Run Locally
 
 ```bash
 git clone https://github.com/Tamaghnatech/Tiny-LLM.git
 cd Tiny-LLM
+
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate   # Windows: venv\Scripts\activate
+
 pip install -r requirements.txt
 ```
 
-### Step 2: Add Model
-
-Place `transformer_final.pt` inside `models/`.
-
-### Step 3: Run the App
+Then, place the model inside `models/` and launch:
 
 ```bash
 python app.py
 ```
 
-Access: [http://localhost:7860](http://localhost:7860)
+---
+
+## 🔥 Gradio Features
+
+* 🔹 Prompt input box
+* 🔢 Length slider (50–1000)
+* 🌡️ Temperature control (creativity)
+* 🎯 Top-k sampling
+* 🌓 Light/Dark toggle
+* 🧠 Model explanation
+* 📜 Prompt history
+* 💾 Downloadable output
+* 🧭 Timeline + Project overview
 
 ---
 
-## 🧪 Use CLI
+## 🧪 Use from Terminal
 
 ```bash
 python generate_text.py
 ```
 
-> You'll be prompted for:
->
-> * A starting prompt
-> * Length of text
-> * Sampling temperature
-> * Top-k setting
+You’ll be asked for:
+
+* Prompt
+* Length
+* Temperature
+* Top-k
+
+Result prints in console.
 
 ---
 
-## ⚙️ Model Hyperparameters
+## 🛠️ Dev Roadmap
 
-| Key            | Value       |
-| -------------- | ----------- |
-| Model Type     | Transformer |
-| Layers         | 8           |
-| Heads          | 8           |
-| Embedding Dim  | 512         |
-| Block Size     | 256         |
-| Optimizer      | AdamW       |
-| Tokenizer      | Character   |
-| Training Steps | 100         |
-
----
-
-## 🧩 Features in Gradio App
-
-* 📝 Prompt input field
-* 🔥 Temperature, Length, Top-K sliders
-* 🌙 Dark/Light theme toggle
-* 💾 Save generated text
-* 📜 Prompt history
-* ⚙️ Model overview
-* 📊 W\&B link
-* 🧠 Timeline + credits
-
----
-
-## 🛠 Dev Roadmap
-
-* [x] Train LSTM & GRU baseline
-* [x] Train custom Transformer model
-* [x] CLI + Gradio interfaces
-* [x] W\&B integration
-* [ ] Add Byte Pair Encoding (BPE)
-* [ ] Hugging Face deployment
-* [ ] Add language selector
+* [x] Character-level LSTM & GRU models
+* [x] Train Transformer from scratch
+* [x] Gradio + CLI interfaces
+* [x] Weights & Biases integration
+* [x] Hugging Face demo deployment
+* [ ] Byte Pair Encoding (BPE)
 * [ ] Attention visualization
-* [ ] Docker + PyPI releases
+* [ ] Language toggle (Bengali, English, Hindi, German)
+* [ ] Docker + PyPI support
+* [ ] Long-context training
 
 ---
 
-## 👑 Built By
+## 👨‍💻 Author
 
 **Tamaghna Nag**
-*ML Engineer | Founder, NovalQ | Code Poet*
+Founder of NovalQ | ML Engineer | Shakespeare Whisperer
 
 * 🔗 [Portfolio](https://tamaghnatech.in)
 * 🐙 [GitHub](https://github.com/Tamaghnatech)
-* 🧠 [W\&B Logs](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm)
+* 📊 [W\&B Project](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm)
 
 ---
 
-## 📣 Final Word
+## 💬 Final Word
 
-> "A small dataset. A big dream.
-> This LLM is tiny in size, but mighty in ambition."
-> — Tamaghna Nag 🧙‍♂️
+> “A tiny model built on timeless literature.
+> Proof that even small things, when trained well, can sound divine.”
 
 ---
+
+### 🪄 Fork It. Prompt It. Publish It.
+
+🔥 Star the repo if you like the effort and [try the app on Hugging Face](https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM)!
+
+```
+
