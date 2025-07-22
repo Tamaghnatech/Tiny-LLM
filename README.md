@@ -1,20 +1,12 @@
-````markdown
-<h1 align="center">🚀 Tiny-LLM: Shakespearean Text Generator</h1>
-
-<p align="center">
-  <a href="https://github.com/Tamaghnatech/Tiny-LLM/stargazers"><img src="https://img.shields.io/github/stars/Tamaghnatech/Tiny-LLM?style=social" alt="Stars"></a>
-  <a href="https://github.com/Tamaghnatech/Tiny-LLM/network/members"><img src="https://img.shields.io/github/forks/Tamaghnatech/Tiny-LLM?style=social" alt="Forks"></a>
-  <a href="https://github.com/Tamaghnatech/Tiny-LLM/issues"><img src="https://img.shields.io/github/issues/Tamaghnatech/Tiny-LLM" alt="Issues"></a>
-  <a href="https://github.com/Tamaghnatech/Tiny-LLM/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Tamaghnatech/Tiny-LLM" alt="License"></a>
-</p>
-
----
+# 🚀 Tiny-LLM: Shakespearean Text Generator
 
 🎭 **Tiny-LLM** is a *local-first* mini Language Model that generates Shakespearean, poetic, and surreal text using a **Transformer**, trained entirely from scratch on the *Complete Works of Shakespeare*.
 
 💻 Supports both **Gradio UI** and **Command Line Interface** (CLI). Write prompts, tune temperature, toggle light/dark mode, and download your AI-written verses.
 
-🌐 **[👉 Try it LIVE on Hugging Face Spaces](https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM)**
+## 🌐 Try it Live
+
+[![Hugging Face Spaces](https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM)
 
 ---
 
@@ -69,7 +61,7 @@ Tiny-LLM/
 
 All training experiments were tracked using Weights & Biases:
 
-- 🔗 [View Project Dashboard](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm)  
+- 🔗 [Project Dashboard](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm)
 - 📈 [Transformer Run](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm/runs/9000xl8r)
 
 ---
@@ -78,10 +70,10 @@ All training experiments were tracked using Weights & Biases:
 
 ```bash
 Tiny-LLM/
-├── app.py                  # Gradio interface
-├── generate_text.py        # CLI generator
-├── trainer_transformer.py  # Transformer training loop
-├── prepare_dataset.py      # Dataset cleaner
+├── app.py
+├── generate_text.py
+├── trainer_transformer.py
+├── prepare_dataset.py
 │
 ├── data/
 │   ├── input.txt
@@ -89,17 +81,17 @@ Tiny-LLM/
 │   └── Shakespeare_data.csv
 │
 ├── models/
-│   └── transformer_final.pt  ✅
+│   └── transformer_final.pt
 │
 ├── source/
 │   ├── model_transformer.py
 │   ├── model_lstm.py
 │   ├── model_gru.py
 │   ├── utils.py
-│   └── tokenizer_bpe.py (WIP)
+│   └── tokenizer_bpe.py
 │
-├── logs/                  # Session outputs
-├── notebooks/             # Jupyter breakdowns
+├── logs/
+├── notebooks/
 ├── requirements.txt
 └── README.md
 ```
@@ -143,15 +135,15 @@ python app.py
 
 ## 🔥 Gradio Features
 
-- 🔹 Prompt input box  
-- 🔢 Length slider (50–1000)  
-- 🌡️ Temperature control (creativity)  
-- 🎯 Top-k sampling  
-- 🌓 Light/Dark toggle  
-- 🧠 Model explanation  
-- 📜 Prompt history  
-- 💾 Downloadable output  
-- 🧭 Timeline + Project overview  
+- Prompt input box  
+- Length slider (50–1000)  
+- Temperature control (creativity)  
+- Top-k sampling  
+- Light/Dark toggle  
+- Model explanation  
+- Prompt history  
+- Downloadable output  
+- Timeline + Project overview  
 
 ---
 
@@ -171,14 +163,14 @@ You’ll be asked for:
 
 ## 🛠️ Dev Roadmap
 
-- [x] Character-level LSTM & GRU models  
+- [x] LSTM & GRU baselines  
 - [x] Train Transformer from scratch  
 - [x] Gradio + CLI interfaces  
-- [x] Weights & Biases integration  
-- [x] Hugging Face demo deployment  
-- [ ] Byte Pair Encoding (BPE)  
+- [x] Weights & Biases logging  
+- [x] Hugging Face Spaces demo  
+- [ ] BPE tokenizer  
 - [ ] Attention visualization  
-- [ ] Language toggle (Bengali, English, Hindi, German)  
+- [ ] Language toggle  
 - [ ] Docker + PyPI support  
 - [ ] Long-context training  
 
@@ -187,22 +179,21 @@ You’ll be asked for:
 ## 👨‍💻 Author
 
 **Tamaghna Nag**  
-Founder of NovalQ | ML Engineer | Shakespeare Whisperer  
+Founder of NovalQ | ML Engineer | Shakespeare Whisperer
 
-- 🔗 [Portfolio](https://tamaghnatech.in)  
-- 🐙 [GitHub](https://github.com/Tamaghnatech)  
-- 📊 [W&B Project](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm)  
+- [Portfolio](https://tamaghnatech.in)  
+- [GitHub](https://github.com/Tamaghnatech)  
+- [W&B Project](https://wandb.ai/nagtamaghna-oxford-vision-and-sensor-technology/tiny-llm)  
 
 ---
 
 ## 💬 Final Word
 
 > “A tiny model built on timeless literature.  
-> Proof that even small things, when trained well, can sound divine.”  
+> Proof that even small things, when trained well, can sound divine.”
 
 ---
 
-### 🪄 Fork It. Prompt It. Publish It.
+## 🪄 Fork It. Prompt It. Publish It.
 
-🔥 Star the repo if you like the effort and [try the app on Hugging Face](https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM)!
-````
+⭐ Star this repo if you like the work and [play with the app on Hugging Face](https://huggingface.co/spaces/Tamaghnatech/Tiny-LLM)!
